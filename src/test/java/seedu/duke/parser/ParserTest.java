@@ -184,11 +184,10 @@ public class ParserTest {
      * Tests the parsing of a "mark" command.
      * Verifies that valid mark commands return non-null commands in the task state,
      * null commands in the main state, and throws an exception for invalid input.
-          * @throws IllegalValueException 
-          */
+     */
      
-         @Test
-         public void parseCommandMark() throws IllegalValueException {
+    @Test
+    public void parseCommandMark() throws IllegalValueException {
         State taskState = new State(StateType.TASK_STATE);
         Command returnedCommand = new MarkParser().execute("mark 0", taskState);
         assertEquals(true, returnedCommand != null);
@@ -213,7 +212,7 @@ public class ParserTest {
      */
 
     @Test
-    public void parseCommandUnmark() {
+    public void parseCommandUnmark() throws IllegalValueException {
         State taskState = new State(StateType.TASK_STATE);
         Command returnedCommand = new UnmarkParser().execute("unmark 0",taskState);
         assertEquals(true, returnedCommand != null);

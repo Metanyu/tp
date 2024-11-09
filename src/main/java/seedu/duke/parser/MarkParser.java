@@ -20,10 +20,10 @@ public class MarkParser implements CommandParser{
      * @param line  The input string containing the "mark" command followed by the index of the task to be marked.
      * @param state The current state of the application, used to determine if the command can be executed.
      * @return A {@link MarkTaskCommand} if in {@code TASK_STATE}, or {@code null} if the command cannot be executed.
-          * @throws IllegalValueException 
-          */
-         @Override
-         public Command execute(String line, State state) throws IllegalValueException {
+     * @throws IllegalValueException 
+     */
+    @Override
+    public Command execute(String line, State state) throws IllegalValueException {
         if(state.getState() == StateType.TASK_STATE) {
             try {
                 int id = parseInt(new Index().extract(line));
