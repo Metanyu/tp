@@ -1,13 +1,13 @@
 package seedu.duke.parser;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
+
 import seedu.duke.commands.Command;
 import seedu.duke.data.exception.IllegalValueException;
 import seedu.duke.data.state.State;
 import seedu.duke.data.state.StateType;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Test class for testing the behavior of different parsers in the application.
@@ -184,10 +184,11 @@ public class ParserTest {
      * Tests the parsing of a "mark" command.
      * Verifies that valid mark commands return non-null commands in the task state,
      * null commands in the main state, and throws an exception for invalid input.
-     */
-
-    @Test
-    public void parseCommandMark() {
+          * @throws IllegalValueException 
+          */
+     
+         @Test
+         public void parseCommandMark() throws IllegalValueException {
         State taskState = new State(StateType.TASK_STATE);
         Command returnedCommand = new MarkParser().execute("mark 0", taskState);
         assertEquals(true, returnedCommand != null);
